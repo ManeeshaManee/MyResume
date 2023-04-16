@@ -654,15 +654,16 @@
                   var name =document.getElementById("name").value;
                   var nameRegex = /^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z])$/;
                   var email=document.getElementById("email").value;
+                  var validRegex = /^[a-zA-Z0-9.!#$%&'+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)$/;
                   var phone=document.getElementById("phone").value;
-                   var validRegex = /^[a-zA-Z0-9.!#$%&'+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)$/;
-                   var subject=document.getElementById("subject").value;
-                   var message=document.getElementById("message").value;
-                  if (!name.match(nameRegex)) {
-                      var inputElement = document.getElementById("name");
-                       alert("Name contain only alphabets");
+                  var subject=document.getElementById("subject").value;
+                  var message=document.getElementById("message").value;
 
-                      return false;
+
+                  if (!name.match(nameRegex)) {
+                        var inputElement = document.getElementById("name");
+                        alert("Name contain only alphabets");
+                        return false;
                   }
                   else if (!email.match(validRegex)) {
 
@@ -671,15 +672,15 @@
                   }
                   else if (!phone.match(/^(\+91[\-\s]?)?[0]?(91)?[789]\d{9}$/)) {
 				        alert("Phone must be in format +911234567890");
-				return false;
+				        return false;
 			          }
-                    else  if (subject == null || subject == "") {
+                  else  if (subject.trim() == null || subject.trim() == "") {
                       // var inputElement = document.getElementById("subject");
                       alert("Enter a subject");
 
                       return false;
                   }
-                 else  if(message ==null || message =="")
+                  else  if(message.trim() == null || message.trim() == "")
                   {
                       //var inputElement = document.getElementById("message");
                       // inputElement.placeholder = "Enter a Message";
@@ -758,7 +759,7 @@
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
-  <script src="assets/js/script.js"></script>
+<!--  <script src="assets/js/script.js"></script>-->
 <script>
     window.addEventListener("load", function() {
     const form = document.getElementById('g-form');
